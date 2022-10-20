@@ -26,6 +26,7 @@ class AzListView extends StatefulWidget {
     this.indexBarItemHeight = kIndexBarItemHeight,
     this.hapticFeedback = false,
     this.indexBarAlignment = Alignment.centerRight,
+    this.shrinkWrap = false,
     this.indexBarMargin,
     this.indexBarOptions = const IndexBarOptions(),
   }) : super(key: key);
@@ -92,6 +93,9 @@ class AzListView extends StatefulWidget {
 
   /// IndexBar options.
   final IndexBarOptions indexBarOptions;
+
+  ///Creates a scrollable, linear array of widgets that are created on demand.
+  final bool shrinkWrap;
 
   @override
   _AzListViewState createState() => _AzListViewState();
@@ -183,6 +187,7 @@ class _AzListViewState extends State<AzListView> {
     return Stack(
       children: [
         SuspensionView(
+          shrinkWrap: widget.shrinkWrap,
           data: widget.data,
           itemCount: widget.itemCount,
           itemBuilder: widget.itemBuilder,

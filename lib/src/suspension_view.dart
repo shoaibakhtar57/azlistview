@@ -19,6 +19,7 @@ class SuspensionView extends StatefulWidget {
     this.susPosition,
     this.physics,
     this.padding,
+    this.shrinkWrap = false,
   }) : super(key: key);
 
   /// Suspension data.
@@ -56,6 +57,9 @@ class SuspensionView extends StatefulWidget {
 
   /// The amount of space by which to inset the children.
   final EdgeInsets? padding;
+
+  ///Creates a scrollable, linear array of widgets that are created on demand.
+  final bool shrinkWrap;
 
   @override
   _SuspensionViewState createState() => _SuspensionViewState();
@@ -151,6 +155,7 @@ class _SuspensionViewState extends State<SuspensionView> {
         widget.itemCount == 0
             ? Container()
             : ScrollablePositionedList.builder(
+                shrinkWrap: widget.shrinkWrap,
                 itemCount: widget.itemCount,
                 itemBuilder: (context, index) => _buildItem(context, index),
                 itemScrollController: itemScrollController,
