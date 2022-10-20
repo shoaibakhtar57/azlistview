@@ -12,6 +12,7 @@ class SuspensionView extends StatefulWidget {
     required this.data,
     required this.itemCount,
     required this.itemBuilder,
+    required this.shrinkWrap,
     this.itemScrollController,
     this.itemPositionsListener,
     this.susItemBuilder,
@@ -19,7 +20,6 @@ class SuspensionView extends StatefulWidget {
     this.susPosition,
     this.physics,
     this.padding,
-    this.shrinkWrap = false,
   }) : super(key: key);
 
   /// Suspension data.
